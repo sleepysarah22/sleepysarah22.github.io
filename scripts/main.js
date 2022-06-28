@@ -138,7 +138,7 @@ canvas.addEventListener('click', function(event) {
 		start = true;
 	}
 	drawBoxes();
-	if(cleared == ((matrix.size*matrix.size)-bombs)){
+	if(cleared == ((matrix.length*matrix[0].length)-bombs)){
 		end = true;
 		win = true;
 	}
