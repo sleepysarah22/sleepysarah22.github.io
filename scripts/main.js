@@ -6,7 +6,9 @@ let numMatrix = new Array(matrix.length);
 
 let start = false;
 let end = false;
+let win = false;
 let bombs = 20;
+let cleared = 0;
 
 for(i = 0; i < bombMatrix.length; i++){
 	bombMatrix[i] = new Array(matrix[0].length);
@@ -93,14 +95,29 @@ function draw(){
 }
 
 function endScreen(){
-	ctx.fillStyle = "red";
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-	ctx.fillStyle = "black";
-	ctx.font = '72px serif';
-	ctx.textAlign = 'center';
-	ctx.fillText("WAKE UP", canvas.width/2, canvas.height/2);
-	ctx.font = '34px serif';
-	ctx.fillText("PRESS ENTER TO TRY AGAIN~",canvas.width/2, (canvas.height/2)+100);
+	if(win){
+		ctx.fillStyle = "Green";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		ctx.fillStyle = "black";
+		ctx.font = '72px serif';
+		ctx.textAlign = 'center';
+		ctx.fillText("WAKE UP", canvas.width/2, canvas.height/2);
+		ctx.font = '72px serif';
+		ctx.textAlign = 'center';
+		ctx.fillText("GOOD TOY", canvas.width/2, canvas.height/2+100);
+		ctx.font = '34px serif';
+		ctx.fillText("PRESS ENTER TO GO AGAIN~",canvas.width/2, (canvas.height/2)+200);
+	}
+	else{
+		ctx.fillStyle = "red";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		ctx.fillStyle = "black";
+		ctx.font = '72px serif';
+		ctx.textAlign = 'center';
+		ctx.fillText("WAKE UP", canvas.width/2, canvas.height/2);
+		ctx.font = '34px serif';
+		ctx.fillText("PRESS ENTER TO TRY AGAIN~",canvas.width/2, (canvas.height/2)+100);
+	}
 }
 
 document.addEventListener('keypress', function (e) {
@@ -121,6 +138,10 @@ canvas.addEventListener('click', function(event) {
 		start = true;
 	}
 	drawBoxes();
+	if(cleared == ((matrix.size*matrix.size)-bombs)){
+		end = true;
+		win = true;
+	}
 	if(end){
 		endScreen();
 	}

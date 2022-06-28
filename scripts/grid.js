@@ -98,6 +98,7 @@ function changeBox(canvas, event) {
     	else{
     		if(bombMatrix[i][j] == 0){
     			matrix[i][j] = 1;
+    			cleared++;
     		}
     		else{
     			end = true;
