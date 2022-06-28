@@ -86,6 +86,7 @@ function clearGrid(){
 			numMatrix[i][j] = 0;
 		}
 	}	
+	cleared = 0;
 	drawBoxes();
 }
 
