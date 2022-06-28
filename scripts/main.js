@@ -132,6 +132,7 @@ document.addEventListener('keypress', function (e) {
       	clearGrid();
       	end = false;
       	start = false;
+      	win = false;
       }
       drawBoxes();
     }
