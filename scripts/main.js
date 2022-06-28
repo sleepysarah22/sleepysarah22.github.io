@@ -68,7 +68,13 @@ function init_board(){
 
 	for(i = 0; i < numMatrix.length; i++){
 		for(j = 0; j < numMatrix[0].length;j++){
-			numMatrix[i][j] = checkNeighbors(i,j);
+			neighbors = checkNeighbors(i,j);
+			if(neighbors == 0){
+				numMatrix[i][j] = phrases[Math.floor(Math.random()*phrases.length)];
+			}
+			else{
+				numMatrix[i][j] = neighbors;
+			}
 		}
 	}
 	console.log("board initialized!");

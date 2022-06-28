@@ -5,7 +5,7 @@ canvas.height = 500;
 
 let boxSize = 50;
 
-let phrases = ["good toy~", "POP", "BLISS", "DROP"]
+let phrases = ["Good Toy~", "POP", "BLISS", "DROP"]
 
 //Colors
 let color1 = "blue"
@@ -60,10 +60,18 @@ function drawBoxes(){
 				else{
 					ctx.fillStyle="pink";
 					ctx.font = '12px serif';
-					ctx.fillText(phrases[Math.floor(Math.random()*phrases.length)],i*boxSize, ((j+1)*boxSize)-(boxSize/2));
+					ctx.fillText(numMatrix[i][j],i*boxSize, ((j+1)*boxSize)-(boxSize/2));
 				}
 			}
 
+		}
+	}
+}
+
+function revealAll(){
+	for(i = 0; i<matrix.length;i++){
+		for(j = 0; j< matrix.length;j++){
+			matrix[i][j] = 0;
 		}
 	}
 }
